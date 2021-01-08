@@ -1,5 +1,117 @@
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #2196F3;
+$color-secondary: #88898b;
+$color-info: #00BCD4;
+$color-warning: #F57C00;
+$color-danger: #D32F2F;
+$color-success: #4CAF50;
+$color-text: #4b4b4b;
+
+$modal-backdrop-bg: $color-black;
+$modal-backdrop-opacity: .8;
+$modal-title-line-height: 1em;
+$modal-content-box-shadow-xs: 0 .5rem 1rem rgba(0,0,0,.25);
+$modal-content-box-shadow-sm-up: 0 .5rem 3rem rgba(0,0,0,.25);
+$border-radius:     3px;
+$border-radius-lg:  3px;
+$border-radius-sm:  3px;
+
 @import "~bootstrap/scss/bootstrap";
 
-html {
-  background: #f0f0f0;
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link .feather {
+  margin-right: 4px;
+  color: #727272;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.card {
+  .card-header {
+    @extend .bg-white;
+  }
 }

@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  def benchmark
-
+  def bootstrap
   end
 
 end
