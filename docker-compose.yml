@@ -1,0 +1,47 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:13
+    volumes:
+      - ./.db/postgres:/var/lib/postgresql/data
+      - ./db-backups:/db-backups
+    ports:
+      - 127.0.0.1:5555:5432
+    env_file:
+      - .env
+  redis:
+    image: redis
+    volumes:
+      - ./.db/redis:/data
+    ports:
+      - 127.0.0.1:6666:6379
+  app:
+    &app
+    build:
+      context: .
+      target: app
+    image: app
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - 127.0.0.1:8888:3000
+    volumes:
+      - bundle_cache:/application/bundle
+      - .:/application/app
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+  webpacker:
+    image: app:latest
+    command: bin/webpack-dev-server
+    volumes:
+      - bundle_cache:/application/bundle
+      - .:/application/app
+    ports:
+      - 127.0.0.1:3035:3035
+    depends_on:
+      - app
+    env_file:
+      - .env
+volumes:
+  bundle_cache:
