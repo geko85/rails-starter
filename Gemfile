@@ -53,4 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rack-cors'
 gem 'webpacker'
 gem 'turbo-rails'
-gem 'view_component'
+gem 'view_component', require: "view_component/engine"
