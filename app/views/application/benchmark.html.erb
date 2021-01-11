@@ -1,6 +1,9 @@
 <div class="container my-5">
   <h1 class="">Benchmark</h1>
   <h2 class="mb-3 text-muted">Inline vs. ContentTag vs. partials vs. view_component</h2>
+  <p class="my-3">
+    <a href="#results" class="btn btn-primary btn-lg">Results</a>
+  </p>
 
   <!--
   <h3>Test Data for Table</h3>
@@ -113,5 +116,26 @@
         <pre class="bg-dark p-3 text-white"><%= view_component_full %></pre>
       </div>
     </div>
+
+    <h3 id="results" name="results">Results</h3>
+    <table class="table">
+      <tr>
+        <th>Inline</th>
+        <td><pre class="bg-dark m-0 p-3 text-white"><%= inline_full %></pre></td>
+      </tr>
+      <tr>
+        <th>Content Tag</th>
+        <td><pre class="bg-dark m-0 p-3 text-white"><%= content_tag_full %></pre></td>
+      </tr>
+      <tr>
+        <th>Partial</th>
+        <td><pre class="bg-dark m-0 p-3 text-white"><%= partial_full %></pre></td>
+      </tr>
+      <tr>
+        <th>View Component</th>
+        <td><pre class="bg-dark m-0 p-3 text-white"><%= view_component_full %></pre></td>
+      </tr>
+    </table>
+
   <% end %>
 </div>
